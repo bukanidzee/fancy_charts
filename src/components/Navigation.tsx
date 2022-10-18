@@ -1,15 +1,25 @@
 import {Nav, Navbar, Container} from 'react-bootstrap'
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 export const Navigation = () => {
-
+  let activeStyle = {
+     textDecoration: "underline",
+   };
   return (
     <Navbar variant='dark' bg='dark'>
       <Container fluid>
-        <Navbar.Brand href='#'>Natleks Test</Navbar.Brand>
+        <Navbar.Brand>Natleks Test</Navbar.Brand>
         <Nav>
-          <Link to="/" >View Mode</Link>
-          <Link to="/settings" >Settings</Link>
+          <NavLink to="/view"
+                   style={({ isActive }) =>
+                    isActive ? activeStyle : undefined}>
+            View Mode
+          </NavLink>
+          <NavLink to="/settings" 
+                   style={({ isActive }) =>
+                    isActive ? activeStyle : undefined}>
+            Settings
+          </NavLink>
         </Nav>
       </Container>
     </Navbar>

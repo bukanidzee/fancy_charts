@@ -1,4 +1,4 @@
-import {Route, Routes} from 'react-router-dom';
+import {Route, Routes, Navigate} from 'react-router-dom';
 import {ChartsList, ChartsSettings} from './pages'
 import {Navigation} from './components/Navigation';
 import {useEffect, useMemo} from 'react'
@@ -27,8 +27,9 @@ const App = () => {
       <div id='content'>
         <div>
           <Routes>
-            <Route path='/' element=<ChartsList /> />
+            <Route path='/view' element=<ChartsList /> />
             <Route path='/settings' element=<ChartsSettings /> />
+            <Route path='*' element=<Navigate to='/view' /> />
           </Routes>
         </div>
       </div>
